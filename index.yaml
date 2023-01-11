@@ -1,0 +1,21 @@
+apiVersion: v1
+entries:
+  openhexa:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-01-11T09:08:06.218967129Z"
+    dependencies:
+    - name: airflow
+      repository: https://airflow.apache.org
+      version: 1.7.0
+    - name: jupyterhub
+      repository: https://jupyterhub.github.io/helm-chart/
+      version: 1.2.0
+    description: A Helm chart for app
+    digest: 280a853f4af7a0066b81fa7c1f55fda4a1c2353d7500658dd5c138ad66801f4d
+    name: openhexa
+    type: application
+    urls:
+    - https://viz.bluesquare.org/openhexa-chart/openhexa-0.1.2.tgz
+    version: 0.1.2
+generated: "2023-01-11T09:08:06.203242665Z"
