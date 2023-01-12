@@ -80,7 +80,6 @@ The following is a summary of the helm values provided by Openhexa chart.
 | `airflow.webserver.defaultUser.email`     | Set initial user email                        | `""`                                                    |
 | `airflow.webserver.defaultUser.username`  | Set initial user name                         | `""`                                                    |
 | `airflow.webserver.defaultUser.password`  | Set initial user password                     | `""`                                                    |
-| `airflow.postgresql.enabled`              | Deploy Postgresql with the AIrflow Chart      | `false`                                                 |
 | `airflow.data.metadataSecretName`         | Set connection values from a Secret           | `airflow-db-secret`                                     |
 | `airflow.ingress.web.annotations`         | Web Ingress annotations                       | `{}`                                                    |
 | `airflow.ingress.web.hosts`               | Url of Openhexa airflow                       | `[]`                                                    |
@@ -98,6 +97,7 @@ The following is a summary of the helm values provided by Openhexa chart.
 | `notebooks.config.appCredentialsUrl`      | Set `APP_CREDENTIALS_URL`                     | `""`                                                    |
 | `notebooks.config.logoutRedirectUrl`      | Set `LOGOUT_REDIRECT_URL`                     | `""`                                                    |
 | `notebooks.postgresql.enabled `           | Deploy Postgresql with this Chart             | `false`                                                 |
+| `jupyterhub.hub.config.JupyterHub.authenticator_class`| Authenticator class KubeSpawner                                | ``                                     |
 | `jupyterhub.hub.db.url`                               | Notebooks postgres URL to use                                  | `""`                                   |
 | `jupyterhub.hub.image.name`                           | Openhexa Jupyterhub image                                      | `blsq/openhexa-jupyterhub`             |
 | `jupyterhub.hub.image.tag`                            | Openhexa Jupyterhub tag                                        | `{}`                                   | 
