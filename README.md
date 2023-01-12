@@ -28,7 +28,10 @@ helm uninstall openhexa
 
 ## Helm Chart Values
 
-### Openhexa App values:
+The following is a summary of the helm values provided by Openhexa chart.
+
+<details>
+<summary><code>app.*</code></summary>
 
 | Parameter                                 | Description                                   | Default                                                 |
 |-------------------------------------------|-----------------------------------------------|---------------------------------------------------------|
@@ -49,9 +52,11 @@ helm uninstall openhexa
 | `app.postgresql.port`                     | Postgres port                                 | `5432`                                                  |
 | `app.postgresql.db`                       | App postgres database to use                  | `app`                                                   |
 | `app.postgresql.user`                     | App postgres user to use                      | `admin`                                                 |
+<hr>
+</details>
 
-
-### Openhexa Frontend values:
+<details>
+<summary><code>frontend.*</code></summary>
 
 | Parameter                                 | Description                                   | Default                                                 |
 |-------------------------------------------|-----------------------------------------------|---------------------------------------------------------|
@@ -62,3 +67,5 @@ helm uninstall openhexa
 | `frontend.ingress.annotations.kubernetes.io/ingress.class`| Ingress controller            | `nginx`                                                 |
 | `frontend.ingress.host`                   | Url of Openhexa frontend                      | `app.openhexa.local`                                    |
 | `frontend.ingress.tls.secretName`         | Web Ingress TLS                               | `""`                                                    |
+<hr>
+</details>
