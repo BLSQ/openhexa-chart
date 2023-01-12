@@ -9,7 +9,7 @@ This Helm chart repository enables you to install Openhexa Helm chart directly f
 To install the chart with the release name `openhexa`, run the following commands:
 
 ```
-helm repo add openhexa  https://viz.bluesquare.org/openhexa-chart/
+helm repo add openhexa https://viz.bluesquare.org/openhexa-chart/
 helm repo update
 helm upgrade --install openhexa openhexa/openhexa -f values.yaml -f values.default.yaml 
 ```
