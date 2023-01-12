@@ -123,3 +123,124 @@ The following is a summary of the helm values provided by Openhexa chart.
 
 <hr>
 </details>
+
+## Example Helm Values to test this chart locally by deploying Postgres
+
+### App
+
+```
+app:
+  config:
+    allowedHosts: "*"
+    newFrontendDomain: "app.openhexa.local"
+    corsAllowedOrigins: "http://app.openhexa.local"
+    csrfTrustedOrigins: "http://app.openhexa.local"
+    sessionCookieDomain: ".openhexa.local"
+    notebooksUrl : "http://notebooks.openhexa.local"
+  deployment:
+    image: blsq/openhexa-app
+    tag: latest
+  ingress:
+    annotations:
+      kubernetes.io/ingress.class: "nginx"
+    host: api.openhexa.local
+    tls:
+      secretName: ""
+  postgresql:
+    enabled: true
+    host: app-postgresql-service
+    port: 5432
+    db: app
+    user: admin
+  
+```
+### Frontend
+
+```
+frontend:
+  config:
+    graphqlEndpoint: "http://api.openhexa.local/graphql/"
+    fallbackUrl: "http://api.openhexa.local"
+  deployment:
+    image: blsq/openhexa-frontend
+    tag: latest
+  ingress:
+    annotations:
+      kubernetes.io/ingress.class: "nginx"
+    host: app.openhexa.local
+    tls:
+      secretName: ""
+```
+### Airflow
+
+```
+airflowDb:
+  enabled: false
+airflow:
+  webserver:
+    replicas: 1
+    defaultUser:
+      email: "root@openhexa.org"
+      username: "root@openhexa.org"
+      password: "root"
+  postgresql:
+    enabled: false
+  data:
+    metadataSecretName: airflow-db-secret
+  ingress:
+    web:
+      annotations:
+        kubernetes.io/ingress.class: "nginx"
+      hosts: 
+      - airflow.openhexa.local
+      tls:
+        enabled: false
+        secretName: """
+```
+### Notebooks
+
+```
+notebooks:
+  config:
+    contentSecurityPolicy: "frame-ancestors 'self' api.openhexa.local app.openhexa.local;"
+    appCredentialsUrl: "http://api.openhexa.local/notebooks/credentials/"
+    logoutRedirectUrl: "http://app.openhexa.local"
+  postgresql:
+    enabled: false
+jupyterhub:
+  hub:
+    config:
+      JupyterHub:
+        authenticator_class:
+    db:
+      url: "postgresql://admin@notebooks-postgresql-service:5432/notebooks"
+    image:
+      name: "blsq/openhexa-jupyterhub"
+      tag: "1.3.2"
+  singleuser:
+    image:
+      name: "blsq/openhexa-base-notebook"
+      tag: "0.9.9"
+  ingress:
+    annotations:
+      kubernetes.io/ingress.class: "nginx"
+    hosts:
+      - notebooks.openhexa.local
+    tls:
+      - secretName: "" 
+```
+### Minio
+
+```
+minio:
+  deployment:
+    image: minio/minio
+    tag: latest
+  ingress:
+    annotations:
+      kubernetes.io/ingress.class: "nginx"
+    host: minio.openhexa.local
+    tls:
+      secretName: ""
+```
+
