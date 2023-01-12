@@ -175,7 +175,7 @@ frontend:
 
 ```
 airflowDb:
-  enabled: false
+  enabled: true
 airflow:
   webserver:
     replicas: 1
@@ -183,8 +183,6 @@ airflow:
       email: "root@openhexa.org"
       username: "root@openhexa.org"
       password: "root"
-  postgresql:
-    enabled: false
   data:
     metadataSecretName: airflow-db-secret
   ingress:
@@ -206,7 +204,7 @@ notebooks:
     appCredentialsUrl: "http://api.openhexa.local/notebooks/credentials/"
     logoutRedirectUrl: "http://app.openhexa.local"
   postgresql:
-    enabled: false
+    enabled: true
 jupyterhub:
   hub:
     config:
