@@ -62,7 +62,7 @@ The following is a summary of the helm values provided by Openhexa chart.
 |-------------------------------------------|-----------------------------------------------|---------------------------------------------------------|
 | `frontend.config.graphqlEndpoint`         | Set `GRAPHQL_ENDPOINT`                        | `""`                                                    |
 | `frontend.config.fallbackUrl`             | Set `FALLBACK_URL`                            | `""`                                                    |
-| `frontend.deployment.image`               | Openhexa frontend image                       | `blsq/openhexa-app`                                     |
+| `frontend.deployment.image`               | Openhexa frontend image                       | `blsq/openhexa-frontend`                                |
 | `frontend.deployment.tag`                 | Openhexa frontend tag                         | `""`                                                    |
 | `frontend.ingress.annotations`            | Web Ingress annotations                       | `{}`                                                    |
 | `frontend.ingress.host`                   | Url of Openhexa frontend                      | `""`                                                    |
@@ -86,6 +86,27 @@ The following is a summary of the helm values provided by Openhexa chart.
 | `airflow.ingress.web.hosts`               | Url of Openhexa airflow                       | `[]`                                                    |
 | `airflow.ingress.web.tls.enabled`         | Enable TLS termination for the web Ingress                     | `false`                                |
 | `airflow.ingress.web.tls.secretName`      | Name of a Secret containing a TLS private key and certificate  | `""`                                   |
+<hr>
+</details>
+
+<details>
+<summary><code>notebooks.*</code></summary>
+
+| Parameter                                 | Description                                   | Default                                                 |
+|-------------------------------------------|-----------------------------------------------|---------------------------------------------------------|
+| `notebooks.config.contentSecurityPolicy`  | Set `CONTENT_SECURITY_POLICY`                 | `""`                                                    |
+| `notebooks.config.appCredentialsUrl`      | Set `APP_CREDENTIALS_URL`                     | `""`                                                    |
+| `notebooks.config.logoutRedirectUrl`      | Set `LOGOUT_REDIRECT_URL`                     | `""`                                                    |
+| `notebooks.postgresql.enabled `           | Deploy Postgresql with this Chart             | `false`                                                 |
+| `jupyterhub.hub.db.url`                               | Notebooks postgres URL to use                                  | `""`                                   |
+| `jupyterhub.hub.image.name`                           | Openhexa Jupyterhub image                                      | `blsq/openhexa-jupyterhub`             |
+| `jupyterhub.hub.image.tag`                            | Openhexa Jupyterhub tag                                        | `{}`                                   | 
+| `jupyterhub.singleuser.image.name`                    | Openhexa Singleuser image                                      | `blsq/openhexa-base-notebook`          |
+| `jupyterhub.singleuser.image.tag`                     | Openhexa Singleuser tag                                        | `false`                                |
+| `jupyterhub.ingress.annotations`                      | Web Ingress annotations                                        | `""`                                   |
+| `jupyterhub.ingress.hosts`                            | Url of Openhexa notebooks                                      | `[]`                                   |
+| `jupyterhub.ingress.tls.0.secretName`                 | Name of a Secret containing a TLS private key and certificate  | `""`                                   |
+
 <hr>
 </details>
 
