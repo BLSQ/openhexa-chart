@@ -51,7 +51,7 @@ helm uninstall openhexa
 | `app.postgresql.user`                     | App postgres user to use                      | `admin`                                                 |
 
 
-### Openhexa App values:
+### Openhexa Frontend values:
 
 | Parameter                                 | Description                                   | Default                                                 |
 |-------------------------------------------|-----------------------------------------------|---------------------------------------------------------|
